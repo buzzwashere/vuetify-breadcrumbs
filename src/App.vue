@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+    </v-app-bar>
+
+    <v-main>
+      <BreadCrumbs1 />
+      <v-btn @click="changeBreadcrumbs('/foo')">Foo</v-btn>
+      <v-btn @click="changeBreadcrumbs('/bar/2/xyz')">Bar</v-btn>
+      <v-btn @click="changeBreadcrumbs('/foo/baz/buzz')">Foo/Baz/Buzz</v-btn>
+      <v-btn @click="changeBreadcrumbs('/foo/baz/baz2')">Foo/Baz/Baz2</v-btn>
+      <router-view :key="$route.path" />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BreadCrumbs1 from './components/BreadCrumbs1';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    BreadCrumbs1
+  },
+
+  data: () => ({
+  }),
+  methods: {
+    changeBreadcrumbs(route) {
+      // console.log('changeBreadcrumbs route: ' + route)
+      this.$router.push(route);
+    }
+  },
+};
+</script>
