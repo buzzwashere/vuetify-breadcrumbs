@@ -1,6 +1,7 @@
 <template>
   <div>
-    This is Dude!
+    CO2 Information
+    <router-view />
   </div>
 </template>
 

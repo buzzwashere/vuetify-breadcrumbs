@@ -1,7 +1,6 @@
 <template>
   <div>
-    This is Foo!
-    <router-view />
+    Economy view
   </div>
 </template>
 

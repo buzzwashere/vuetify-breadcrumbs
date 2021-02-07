@@ -1,40 +1,38 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-    </v-app-bar>
+    
+    <top-nav />
+    <side-nav />
 
     <v-main>
-      <BreadCrumbs1 />
-      <v-btn @click="changeBreadcrumbs('/foo')">Foo</v-btn>
-      <v-btn @click="changeBreadcrumbs('/bar/2/xyz')">Bar</v-btn>
-      <v-btn @click="changeBreadcrumbs('/foo/baz/buzz')">Foo/Baz/Buzz</v-btn>
-      <v-btn @click="changeBreadcrumbs('/foo/baz/baz2')">Foo/Baz/Baz2</v-btn>
-      <router-view :key="$route.path" />
+      <v-container fluid>
+        <router-view :key="$route.path"></router-view>
+      </v-container>
     </v-main>
+
+    <v-footer app>
+      <!-- -->
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import BreadCrumbs1 from './components/BreadCrumbs1';
+import TopNav from '@/components/layout/TopNav.vue';
+import SideNav from '@/components/layout/SideNav.vue';
 
 export default {
   name: 'App',
-
   components: {
-    BreadCrumbs1
+    TopNav,
+    SideNav
   },
 
   data: () => ({
   }),
-  methods: {
-    changeBreadcrumbs(route) {
-      // console.log('changeBreadcrumbs route: ' + route)
-      this.$router.push(route);
-    }
-  },
 };
 </script>
+<style>
+.a-router-link {
+  text-decoration: none !important;
+}
+</style>
