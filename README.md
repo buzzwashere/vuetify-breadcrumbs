@@ -1,4 +1,4 @@
-# breadcrumbs
+# vuetify-breadcrumbs
 
 Repo to research and prototype Vuetify's breadcrumbs component
 
